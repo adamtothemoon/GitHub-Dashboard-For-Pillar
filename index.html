@@ -7,5 +7,20 @@
 </head>
 <body>
     <h1>Github Dashboard</h1>
+    <h3>Get Top Repositories For One of the Following Metrics:</h3>
+    <button id = 'getReposByStar', onclick="onClickGetReposByStar()">Get By Star</button> 
+    <button id = 'getReposByForks', onclick="onClickGetReposByForks()">Get By Forks</button> 
+    <button id = 'getReposByContributors', onclick="onClickGetReposByContributors()">Get By Contributors</button> 
+    <script>
+    async function onClickGetReposByStar() {
+       alert("Star Button Clicked");
+    }
+    async function onClickGetReposByForks() {
+       alert("Forks Button Clicked");
+    }
+    async function onClickGetReposByContributors() {
+       alert("Contributors Button Clicked");
+    }
+    </script>
 </body>
 </html>
