@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar/issues"
   },
-  "homepage": "https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar#readme"
+  "homepage": "https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
