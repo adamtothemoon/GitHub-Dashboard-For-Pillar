@@ -1,0 +1,19 @@
+{
+  "name": "git-dash-for-pillar",
+  "version": "1.0.0",
+  "description": "7/28/2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar.git"
+  },
+  "author": "Adam Pratt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar/issues"
+  },
+  "homepage": "https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar#readme"
+}
