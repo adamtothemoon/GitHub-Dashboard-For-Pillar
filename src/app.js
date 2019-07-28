@@ -11,4 +11,4 @@ app.get('/', (req, res) => {
     res.send(healthCheckResponse)
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Server Running On Port ${port}!`))
