@@ -1,3 +1,3 @@
-export const get = (res) => {
+function get (res) {
     res.status(200).send('okay');
 };
