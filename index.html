@@ -5,15 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
+<style>
+    .button {
+        background-color: #FFCC5A;
+        border: none;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    </style>
 <body>
     <h1>Github Dashboard</h1>
-    <h3>Input a Github Repo Owner Name:</h3>
+    <h3>Input a Github Repo Owner Name (Defaults to All if None Given):</h3>
     <input id="ownerName" type="text"></input>
     <h3>Get Top Repositories For One of the Following Metrics:</h3>
-    <button id="getReposByStar", onclick="onClickGetReposByStar()">Get By Star</button> 
-    <button id="getReposByForks", onclick="onClickGetReposByForks()">Get By Forks</button> 
-    <button id="getReposByContributors", onclick="onClickGetReposByContributors()">Get By Contributors</button>
-    <button id="clearResultsButton", onclick="clearResult()">Clear Result</button>
+    <button  class="button", id="getReposByStar", onclick="onClickGetReposByStar()">Get By Star</button> 
+    <button  class="button", id="getReposByForks", onclick="onClickGetReposByForks()">Get By Forks</button> 
+    <button  class="button", id="getReposByContributors", onclick="onClickGetReposByContributors()">Get By Contributors</button>
+    or
+    <button  class="button", id="clearResultsButton", onclick="clearResult()">Clear Result</button>
     <div id="githubRepoNames"></div>
     <script>
         //TODO, have the FE hit the server applet and not use this gross string concat
@@ -24,8 +40,8 @@
             const result = await response.json();
             
             result.items.forEach(repo => {
-                githubRepoNames.appendChild(document.createTextNode(repo.name))
-                githubRepoNames.appendChild(document.createElement("div"))
+                githubRepoNames.appendChild(document.createTextNode(repo.name));
+                githubRepoNames.appendChild(document.createElement("div"));
             })
         }
         async function onClickGetReposByForks() {        
@@ -35,8 +51,8 @@
             const result = await response.json();
             
             result.items.forEach(repo => {
-                githubRepoNames.appendChild(document.createTextNode(repo.name))
-                githubRepoNames.appendChild(document.createElement("div"))
+                githubRepoNames.appendChild(document.createTextNode(repo.name));
+                githubRepoNames.appendChild(document.createElement("div"));
             })
         }
         async function onClickGetReposByContributors() {
@@ -46,8 +62,8 @@
             const result = await response.json();
             
             result.items.forEach(repo => {
-                githubRepoNames.appendChild(document.createTextNode(repo.name))
-                githubRepoNames.appendChild(document.createElement("div"))
+                githubRepoNames.appendChild(document.createTextNode(repo.name));
+                githubRepoNames.appendChild(document.createElement("div"));
             })
         }
 

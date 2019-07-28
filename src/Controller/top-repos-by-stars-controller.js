@@ -1,6 +1,6 @@
 const get = async req => {
-    const ownerName = req.ownerName
-    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner::${ownerName}&sort=stars&order=desc`
+    const ownerName = req.ownerName;
+    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner::${ownerName}&sort=stars&order=desc`;
     let response;
     try {
         response = await fetch(GITHUB_URL);

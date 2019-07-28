@@ -1,10 +1,10 @@
 //This implementaiton of the get-top controllers has the down side of more duplicated code however I find it much
 //easier to read, change and work with. That being said I am open to alternative, specifically more consolidated
-//options if that is preferable
+//options if that is preferable.
 
-const get = async orgName => {
-    const ownerName = req.ownerName
-    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner:${ownerName}&sort=contributors&order=desc`
+const get = async req => {
+    const ownerName = req.ownerName;
+    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner:${ownerName}&sort=contributors&order=desc`;
     let response;
     try {
         response = await fetch(GITHUB_URL);
