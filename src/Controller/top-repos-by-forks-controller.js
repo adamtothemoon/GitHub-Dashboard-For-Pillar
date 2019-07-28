@@ -1,5 +1,5 @@
 const get = async orgName => {
-    const GITHUB_URL = "https://api.github.com/search/repositories?q=owner:facebook&sort=forks&order=desc"
+    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner::${orgName}&sort=forks&order=desc`
     let response;
     try {
         response = await fetch(GITHUB_URL);
