@@ -3,7 +3,8 @@
 //options if that is preferable
 
 const get = async orgName => {
-    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner:${orgName}&sort=contributors&order=desc`
+    const ownerName = req.ownerName
+    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner:${ownerName}&sort=contributors&order=desc`
     let response;
     try {
         response = await fetch(GITHUB_URL);
@@ -11,7 +12,7 @@ const get = async orgName => {
             const result = await response.json();
             return result;
         } else {
-            return new HttpResponse(404, 'Org Not Found: ' + orgName);
+            return new HttpResponse(404, 'Org Not Found: ' + ownerName);
         }
     } catch (error) {
         logError(error);
