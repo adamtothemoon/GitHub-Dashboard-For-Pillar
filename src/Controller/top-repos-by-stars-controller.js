@@ -1,5 +1,6 @@
 const get = async req => {
-    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner::${orgName}&sort=stars&order=desc`
+    const ownerName = req.ownerName
+    const GITHUB_URL = `https://api.github.com/search/repositories?q=owner::${ownerName}&sort=stars&order=desc`
     let response;
     try {
         response = await fetch(GITHUB_URL);
@@ -7,7 +8,7 @@ const get = async req => {
             const result = await response.json();
             return result;
         } else {
-            return new HttpResponse(404, 'Org Not Found: ' + orgName);
+            return new HttpResponse(404, 'Org Not Found: ' + ownerName);
         }
     } catch (error) {
         logError(error);

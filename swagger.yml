@@ -1,0 +1,14 @@
+ /healthcheck:
+    x-swagger-router-controller: healthcheck-controller
+    x-swagger-no-api-key: true
+    get:
+      summary: Health Check
+      tags:
+        - Health
+      produces:
+        - application/text
+      responses:
+        200:
+          description: Is the service healthy
+
+#ran out of time to set up swagger

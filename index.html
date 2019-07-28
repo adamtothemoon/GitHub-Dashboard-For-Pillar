@@ -7,20 +7,56 @@
 </head>
 <body>
     <h1>Github Dashboard</h1>
+    <h3>Input a Github Repo Owner Name:</h3>
+    <input id="ownerName" type="text"></input>
     <h3>Get Top Repositories For One of the Following Metrics:</h3>
-    <button id = 'getReposByStar', onclick="onClickGetReposByStar()">Get By Star</button> 
-    <button id = 'getReposByForks', onclick="onClickGetReposByForks()">Get By Forks</button> 
-    <button id = 'getReposByContributors', onclick="onClickGetReposByContributors()">Get By Contributors</button> 
+    <button id="getReposByStar", onclick="onClickGetReposByStar()">Get By Star</button> 
+    <button id="getReposByForks", onclick="onClickGetReposByForks()">Get By Forks</button> 
+    <button id="getReposByContributors", onclick="onClickGetReposByContributors()">Get By Contributors</button>
+    <button id="clearResultsButton", onclick="clearResult()">Clear Result</button>
+    <div id="githubRepoNames"></div>
     <script>
-    async function onClickGetReposByStar() {
-       alert("Star Button Clicked");
-    }
-    async function onClickGetReposByForks() {
-       alert("Forks Button Clicked");
-    }
-    async function onClickGetReposByContributors() {
-       alert("Contributors Button Clicked");
-    }
+        //TODO, have the FE hit the server applet and not use this gross string concat
+        async function onClickGetReposByStar() {
+            var repoOwnerName = document.getElementById("ownerName").value;
+            //const response = await fetch(`http://localhost:3000/get-repos-by-stars?ownerName=:${repoOwnerName}`);
+            const response = await fetch(`https://api.github.com/search/repositories?q=owner:${repoOwnerName}&sort=stars&order=desc`);
+            const result = await response.json();
+            
+            result.items.forEach(repo => {
+                githubRepoNames.appendChild(document.createTextNode(repo.name))
+                githubRepoNames.appendChild(document.createElement("div"))
+            })
+        }
+        async function onClickGetReposByForks() {        
+            var repoOwnerName = document.getElementById("ownerName").value;
+            //const response = await fetch(`http://localhost:3000/get-repos-by-forks?ownerName=:${repoOwnerName}`);
+            const response = await fetch(`https://api.github.com/search/repositories?q=owner:${repoOwnerName}&sort=forks&order=desc`);
+            const result = await response.json();
+            
+            result.items.forEach(repo => {
+                githubRepoNames.appendChild(document.createTextNode(repo.name))
+                githubRepoNames.appendChild(document.createElement("div"))
+            })
+        }
+        async function onClickGetReposByContributors() {
+            var repoOwnerName = document.getElementById("ownerName").value;
+            //const response = await fetch(`http://localhost:3000/get-repos-by-contributor?ownerName=:${repoOwnerName}`);
+            const response = await fetch(`https://api.github.com/search/repositories?q=owner:${repoOwnerName}&sort=contributors&order=desc`);
+            const result = await response.json();
+            
+            result.items.forEach(repo => {
+                githubRepoNames.appendChild(document.createTextNode(repo.name))
+                githubRepoNames.appendChild(document.createElement("div"))
+            })
+        }
+
+        async function clearResult() {
+            var githubRepoNames = document.getElementById("githubRepoNames");
+            while (githubRepoNames.firstChild) {
+                githubRepoNames.removeChild(githubRepoNames.firstChild);
+            }
+        }
     </script>
 </body>
 </html>
