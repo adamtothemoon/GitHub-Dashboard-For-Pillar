@@ -18,6 +18,6 @@
   "homepage": "https://github.com/adamtothemoon/GitHub-Dashboard-For-Pillar#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   }
 }
